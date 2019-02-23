@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" href="/css/chessboard-0.3.0.css">
+    <title>Chess Engine</title>
+</head>
+<body>
+
+<input type="hidden" id="fen" value="${fen}" th:value="${fen}">
+
+<div id="board" style="width: 400px"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+<script src="/javascript/chessboard-0.3.0.js"></script>
+<script src="/javascript/playervscomputer.js"></script>
+</body>
+</html>
+
