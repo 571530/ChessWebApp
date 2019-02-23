@@ -4,7 +4,6 @@ import chesspresso.Chess;
 import chesspresso.move.IllegalMoveException;
 import chesspresso.move.Move;
 import chesspresso.position.Position;
-import com.sun.xml.internal.ws.api.pipe.Engine;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
