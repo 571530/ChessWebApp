@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>New Game</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<form action="newgame" method="post">
-    <p><input type="radio" name="difficulty" value="easy">Easy</p>
-    <p><input type="radio" name="difficulty" value="medium" checked>Medium</p>
-    <p><input type="radio" name="difficulty" value="hard">Hard</p>
-    <input type="submit" value="New Game">
-</form>
-
+<!--<div class="newgame">
+    <h2>Play chess</h2>
+    <hr>
+    <p class="difficulty_header">Difficulty</p>
+    <form action="newgame" method="post">
+            <label class="">
+                <input type="radio" name="difficulty" value="easy" autocomplete="off" checked> Easy
+            </label>
+            <label class="">
+                <input type="radio" name="difficulty" value="medium" autocomplete="off" checked> Medium
+            </label>
+            <label class="">
+                <input type="radio" name="difficulty" value="hard"autocomplete="off"> Hard
+            </label>
+        <button type="submit" class="newgame_button">New Game</button>
+    </form>
+</div>
+-->
+<div class="container">
+    <p class="block">Choose difficulty</p>
+    <br>
+    <form action="newgame" method="post">
+        <div class="radio-group block">
+            <input type="radio" id="option-one" name="difficulty" value="easy"><label
+                for="option-one">Easy</label><input type="radio" id="option-two" name="difficulty" value="medium"
+                                                    checked><label for="option-two">Medium</label><input type="radio"
+                                                                                                         id="option-three"
+                                                                                                         name="difficulty"
+                                                                                                         value="hard"><label
+                for="option-three">Hard</label>
+        </div>
+        <br>
+        <br>
+        <input class="block" type="submit" value="New Game">
+    </form>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 </body>
 </html>

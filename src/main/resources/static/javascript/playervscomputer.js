@@ -12,9 +12,55 @@ let removeGreySquares = function () {
     $('#board .square-55d63').css('background', '');
 };
 
+let greySquare = function (square) {
+    let squareEl = $('#board .square-' + square);
+
+    let background = '#a9a9a9';
+    if (squareEl.hasClass('black-3c85d') === true) {
+        background = '#696969';
+    }
+
+    squareEl.css('background', background);
+};
+
+let checkIfInCheck = function () {
+
+    if (game.in_check()) {
+        let turn = game.turn();
+
+        for (let i = 0; i < game.SQUARES.length; i++) {
+            let piece = game.get(game.SQUARES[i]);
+
+            if (piece != null && piece.type === "k" && piece.color === turn) {
+                redSquare(game.SQUARES[i]);
+                return;
+            }
+        }
+
+    }
+
+};
+
+let findKing = function () {
+    let turn = game.turn();
+
+}
+
+let redSquare = function (square) {
+    let squareEl = $('#board .square-' + square);
+
+    let background = '#FF0000';
+
+    squareEl.css('background', background);
+};
+
+let removeRedSquares = function () {
+    $('#board .square-55d63').css('background', '');
+}
+
 let afterComputerMove = function () {
     your_turn = true;
-}
+};
 
 let makeComputerMove = function (playermove) {
     your_turn = false;
@@ -31,6 +77,7 @@ let makeComputerMove = function (playermove) {
                     console.log(data.moves[0].san);
                     game.move(data.moves[0].san);
                     board.position(game.fen());
+                    checkIfInCheck();
                     setTimeout(afterComputerMove, WAIT_TIME);
                 } else {
                     return computerMove(playermove, afterComputerMove);
@@ -39,7 +86,7 @@ let makeComputerMove = function (playermove) {
     } else {
         return computerMove(playermove, afterComputerMove);
     }
-}
+};
 
 let computerMove = function (playermove, then) {
     your_turn = false;
@@ -56,23 +103,13 @@ let computerMove = function (playermove, then) {
 
                 game.move(move);
                 board.position(game.fen());
+                checkIfInCheck();
                 your_turn = true;
 
                 setTimeout(then, 250);
             }
 
         });
-}
-
-let greySquare = function (square) {
-    let squareEl = $('#board .square-' + square);
-
-    let background = '#a9a9a9';
-    if (squareEl.hasClass('black-3c85d') === true) {
-        background = '#696969';
-    }
-
-    squareEl.css('background', background);
 };
 
 let onDragStart = function (source, piece) {
@@ -122,6 +159,7 @@ let onMouseoverSquare = function (square, piece) {
 };
 
 let onMouseoutSquare = function (square, piece) {
+    removeRedSquares();
     removeGreySquares();
 };
 
@@ -138,5 +176,6 @@ let cfg = {
     onMouseoverSquare: onMouseoverSquare,
     onSnapEnd: onSnapEnd
 };
+
 board = ChessBoard('board', cfg);
 board.position(game.fen());

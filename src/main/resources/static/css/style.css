@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    background: #332f35;
+    font-family: roboto;
+}
+
+@media screen and (orientation: portrait) {
+    #board {
+        margin: auto;
+        width: 100vw;
+    }
+
+    .container {
+        margin: auto;
+        width: 100vw;
+        display: block;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    #board {
+        margin: auto;
+        width: 40vw;
+    }
+
+    .container {
+        margin: auto;
+        width: 60vw;
+        display: block;
+    }
+}
+
+
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+label {
+    color: #9a929e;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+}
+
+input[type=radio]:checked + label {
+    color: #ccc8ce;
+    background: #675f6b;
+}
+label + input[type=radio] + label {
+    border-left: solid 3px #675f6b;
+}
+
+input[type=submit] {
+    border: 0;
+
+    background: #675f6b;
+    color: #ccc8ce;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+input[type=button] {
+    border: 0;
+
+    background: #675f6b;
+    color: #ccc8ce;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.radio-group {
+    border: solid 3px #675f6b;
+    display: inline-block;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.block {
+    color: #ccc8ce;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    display: block;
+}
+
+p.block {
+    font-size: 2.5em;
+}
